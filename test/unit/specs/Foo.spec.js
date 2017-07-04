@@ -30,4 +30,10 @@ describe('Foo.vue', () => {
         const text = wrapper.find('p')[0].text()
         expect(text).toBe(msg2)
     })
+
+    it('renders Bar', () => {
+        const wrapper = shallow(Foo)
+        const bar = wrapper.find(Bar)[0]
+        expect(bar.is(Bar)).toBe(true)
+    })
 })

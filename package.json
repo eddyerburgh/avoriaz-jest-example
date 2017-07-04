@@ -11,7 +11,7 @@
     "test": "NODE_ENV=production ./node_modules/.bin/jest"
   },
   "dependencies": {
-    "vue": "^2.1.0"
+    "vue": "^2.3.4"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -44,6 +44,7 @@
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
     "jest": "^18.1.0",
+    "jest-vue-preprocessor": "^1.0.1",
     "js-beautify": "^1.6.8",
     "json-loader": "^0.5.4",
     "opn": "^4.0.2",
@@ -54,7 +55,6 @@
     "vue-loader": "^10.0.0",
     "vue-server-renderer": "^2.1.10",
     "vue-style-loader": "^1.0.0",
-    "vue-template-compiler": "^2.1.0",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
@@ -71,12 +71,13 @@
       "src/([^\\.]*)$": "<rootDir>/src/$1.vue",
       "(.*)/(.*)$": "$1/$2.vue"
     },
-    "snapshotSerializers": [
-      "<rootDir>/jest/htmlSnapshotBeautifier.js"
+    "moduleFileExtensions": [
+      "js",
+      "vue"
     ],
     "transform": {
-      ".*\\.vue$": "<rootDir>/jest/jest-vue.js",
-      ".*": "babel-jest"
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor"
     }
   }
 }
