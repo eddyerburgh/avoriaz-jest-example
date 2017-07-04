@@ -11,13 +11,13 @@ describe('Bar.vue', () => {
     it('renders 4 list elements inside .parent-ul', () => {
         const wrapper = mount(Bar)
         const listElements = wrapper.find('.parent-ul li')
-        expect(listElements.length).toBe(4)
+        expect(listElements).toHaveLength(4)
     })
 
     it('renders 2 list elements as direct descendants of .parent-ul', () => {
         const wrapper = mount(Bar)
         const listElements = wrapper.find('.parent-ul > li')
-        expect(listElements.length).toBe(2)
+        expect(listElements).toHaveLength(2)
     })
 
     it('.child-ul has color style set to red', () => {
